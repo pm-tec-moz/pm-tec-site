@@ -1,1 +1,2 @@
-const b=document.querySelector('.menu'),l=document.querySelector('.links');if(b)b.onclick=()=>l.classList.toggle('open');
+// PM-TEC
+// Navegação simples — sem interferência no menu
