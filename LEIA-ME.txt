@@ -1,0 +1,18 @@
+PM-TEC — SITE OFICIAL COMPLETO
+
+Abra index.html para visualizar.
+Inclui:
+- Início
+- Sobre
+- Serviços
+- Formação
+- Preços
+- Portfólio
+- Contactos
+- Botões WhatsApp
+- Botão de e-mail
+- Design responsivo para computador e telemóvel
+
+Contactos:
+WhatsApp: +258 87 815 1816 / +258 84 064 6843
+E-mails: pablo.matola@gmail.com / pablomato50@gmail.com
