@@ -1,613 +1,780 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-PT">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" href="favicon.svg">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Produtos | PM-TEC</title>
 
   <meta
     name="description"
-    content="Produtos, equipamentos, acessórios e soluções tecnológicas da PM-TEC em Moçambique."
+    content="Computadores, laptops, acessórios e soluções tecnológicas disponíveis na PM-TEC."
   >
+
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =========================
+       CATÁLOGO DE PRODUTOS
+    ========================== */
+
+    .products-intro {
+      max-width: 780px;
+      margin-bottom: 42px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: linear-gradient(180deg, #0d1b2e, #0b1929);
+      border: 1px solid #243247;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: #287a86;
+    }
+
+    .product-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #101d2d;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-status {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #25d366;
+      color: #06130b;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .product-content {
+      padding: 23px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category {
+      color: #29d3e6;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    .product-description {
+      color: #a9b6c7;
+      font-size: 0.94rem;
+      margin: 0 0 17px;
+    }
+
+    .specs {
+      margin: 0 0 20px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .specs li {
+      color: #c6d0dc;
+      padding: 7px 0;
+      border-bottom: 1px solid #243247;
+      font-size: 0.88rem;
+    }
+
+    .specs li:last-child {
+      border-bottom: 0;
+    }
+
+    .product-price {
+      margin-top: auto;
+      margin-bottom: 18px;
+    }
+
+    .price-label {
+      display: block;
+      color: #a9b6c7;
+      font-size: 0.75rem;
+      margin-bottom: 3px;
+    }
+
+    .price-value {
+      color: #ffffff;
+      font-size: 1.7rem;
+      font-weight: 950;
+    }
+
+    .product-availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #6ee7a1;
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .product-availability::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #25d366;
+    }
+
+    .product-button {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* =========================
+       ENTREGA
+    ========================== */
+
+    .delivery-box {
+      margin-top: 35px;
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(41, 211, 230, 0.06);
+      border: 1px solid rgba(41, 211, 230, 0.2);
+    }
+
+    .delivery-box strong {
+      display: block;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+
+    .delivery-box p {
+      margin: 0;
+      color: #a9b6c7;
+    }
+
+    /* =========================
+       CATEGORIAS
+    ========================== */
+
+    .category-block {
+      margin-bottom: 75px;
+    }
+
+    .category-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .category-heading h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .category-heading span {
+      color: #a9b6c7;
+      font-size: 0.85rem;
+    }
+
+    /* =========================
+       SOLICITAR PRODUTO
+    ========================== */
+
+    .product-request {
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(41, 211, 230, 0.12),
+          transparent 35%
+        ),
+        #10243a;
+
+      border: 1px solid #243247;
+      border-radius: 22px;
+      padding: 42px;
+    }
+
+    .product-request h2 {
+      margin-top: 0;
+    }
+
+    .product-request p {
+      max-width: 760px;
+      color: #a9b6c7;
+    }
+
+    /* =========================
+       RESPONSIVO
+    ========================== */
+
+    @media (max-width: 1050px) {
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 760px) {
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-heading {
+        display: block;
+      }
+
+      .category-heading span {
+        display: block;
+        margin-top: 5px;
+      }
+
+      .product-request {
+        padding: 30px 24px;
+      }
+
+    }
+
+  </style>
+
 </head>
+
 
 <body>
 
-  <!-- =========================
-       MENU
-  ========================== -->
 
-  <header>
-    <div class="container nav">
+<!-- =========================
+     CABEÇALHO
+========================== -->
 
-      <a href="index.html" class="logo">
+<header>
+
+  <div class="wrap">
+
+    <nav>
+
+      <a class="logo" href="index.html">
         PM-<span>TEC</span>
       </a>
 
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="formacao.html">Formação</a>
-        <a href="precos.html">Preços</a>
-        <a href="produtos.html" class="active">Produtos</a>
-        <a href="portfolio.html">Portfólio</a>
-        <a href="contactos.html">Contactos</a>
-      </nav>
+      <button class="menu" type="button">
+        ☰
+      </button>
 
-    </div>
-  </header>
+      <div class="links">
 
+        <a href="index.html">
+          Início
+        </a>
 
-  <main>
+        <a href="sobre.html">
+          Sobre
+        </a>
 
-    <!-- =========================
-         HERO
-    ========================== -->
+        <a href="servicos.html">
+          Serviços
+        </a>
 
-    <section class="hero">
+        <a href="formacao.html">
+          Formação
+        </a>
 
-      <div class="container">
+        <a href="precos.html">
+          Preços
+        </a>
 
-        <span class="eyebrow">
-          PM-TEC · Produtos & Tecnologia
-        </span>
+        <a class="active" href="produtos.html">
+          Produtos
+        </a>
 
-        <h1>
-          Tecnologia para
-          <span>trabalhar, estudar e avançar.</span>
-        </h1>
+        <a href="portfolio.html">
+          Portfólio
+        </a>
 
-        <p>
-          Equipamentos, acessórios e soluções tecnológicas seleccionados
-          de acordo com a necessidade e o orçamento de cada cliente.
-        </p>
+        <a href="contactos.html">
+          Contactos
+        </a>
 
-        <a
-          href="https://wa.me/258878151816"
-          class="btn whatsapp"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Pedir um produto
+        <a class="navbtn" href="contactos.html">
+          Falar connosco
         </a>
 
       </div>
 
-    </section>
+    </nav>
 
+  </div>
 
-    <!-- =========================
-         PESQUISA
-    ========================== -->
+</header>
 
-    <section class="section">
 
-      <div class="container">
+<main>
 
-        <div class="section-title">
 
-          <span class="eyebrow">
-            Vitrine PM-TEC
-          </span>
+<!-- =========================
+     HERO
+========================== -->
 
-          <h2>
-            Encontre o que procura.
-          </h2>
+<section class="hero">
 
-          <p>
-            Consulte as nossas categorias ou envie-nos directamente
-            o produto que procura.
-          </p>
+  <div class="wrap">
 
-        </div>
+    <div class="eyebrow">
+      PM-TEC · Produtos & Tecnologia
+    </div>
 
+    <h1>
+      Tecnologia para
+      <span>trabalhar, estudar</span>
+      e avançar.
+    </h1>
 
-        <div
-          style="
-            max-width:700px;
-            margin:0 auto 45px;
-          "
-        >
+    <p class="lead">
+      Equipamentos, computadores, acessórios e soluções
+      tecnológicas seleccionadas para particulares,
+      estudantes, profissionais e pequenos negócios.
+    </p>
 
-          <input
-            type="text"
-            id="productSearch"
-            placeholder="🔎 Procurar produto ou categoria..."
-            style="
-              width:100%;
-              padding:16px 20px;
-              border-radius:12px;
-              border:1px solid rgba(255,255,255,.12);
-              background:rgba(255,255,255,.04);
-              color:inherit;
-              font-size:1rem;
-              outline:none;
-              box-sizing:border-box;
-            "
-          >
+    <div class="buttons">
 
-        </div>
+      <a
+        class="btn whatsapp"
+        href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20gostaria%20de%20consultar%20os%20produtos%20disponíveis."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Consultar produtos
+      </a>
 
+    </div>
 
-        <!-- =========================
-             CATEGORIAS
-        ========================== -->
+  </div>
 
-        <div class="cards" id="productGrid">
+</section>
 
 
-          <!-- COMPUTADORES -->
+<!-- =========================
+     PRODUTOS DISPONÍVEIS
+========================== -->
 
-          <article class="card product-card">
+<section class="section">
 
-            <div class="icon">💻</div>
+  <div class="wrap">
 
-            <h3>
-              Computadores / Laptops
-            </h3>
 
-            <p>
-              Laptops e computadores para estudo, trabalho,
-              escritório, produtividade e utilização profissional.
-            </p>
+    <div class="products-intro">
 
-            <span class="tag">
-              Computadores
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20computador%20ou%20laptop."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar computador
-            </a>
-
-          </article>
-
-
-          <!-- EQUIPAMENTOS -->
-
-          <article class="card product-card">
-
-            <div class="icon">🖥️</div>
-
-            <h3>
-              Equipamentos informáticos
-            </h3>
-
-            <p>
-              Monitores, teclados, ratos, webcams e outros
-              equipamentos para completar o seu espaço de trabalho.
-            </p>
-
-            <span class="tag">
-              Equipamentos
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20equipamento%20informático."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar equipamento
-            </a>
-
-          </article>
-
-
-          <!-- ACESSÓRIOS -->
-
-          <article class="card product-card">
-
-            <div class="icon">⌨️</div>
-
-            <h3>
-              Acessórios
-            </h3>
-
-            <p>
-              Teclados, ratos, cabos, adaptadores, suportes,
-              headphones e outros acessórios tecnológicos.
-            </p>
-
-            <span class="tag">
-              Acessórios
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20acessório%20informático."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar acessório
-            </a>
-
-          </article>
-
-
-          <!-- ARMAZENAMENTO -->
-
-          <article class="card product-card">
-
-            <div class="icon">💾</div>
-
-            <h3>
-              Armazenamento
-            </h3>
-
-            <p>
-              Pen drives, discos externos, SSDs, cartões de memória
-              e outras soluções para guardar e transportar dados.
-            </p>
-
-            <span class="tag">
-              Armazenamento
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20uma%20solução%20de%20armazenamento."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar armazenamento
-            </a>
-
-          </article>
-
-
-          <!-- REDES -->
-
-          <article class="card product-card">
-
-            <div class="icon">🌐</div>
-
-            <h3>
-              Redes e conectividade
-            </h3>
-
-            <p>
-              Routers, adaptadores Wi-Fi, cabos de rede,
-              switches e equipamentos para conectividade.
-            </p>
-
-            <span class="tag">
-              Redes
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20produto%20de%20rede%20ou%20conectividade."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar produto de rede
-            </a>
-
-          </article>
-
-
-          <!-- IMPRESSORAS -->
-
-          <article class="card product-card">
-
-            <div class="icon">🖨️</div>
-
-            <h3>
-              Impressoras e consumíveis
-            </h3>
-
-            <p>
-              Impressoras, tinteiros, toners, papel e consumíveis
-              para utilização doméstica, académica e profissional.
-            </p>
-
-            <span class="tag">
-              Impressão
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20uma%20impressora%20ou%20consumível."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar produto
-            </a>
-
-          </article>
-
-
-          <!-- INSTALAÇÃO -->
-
-          <article class="card product-card">
-
-            <div class="icon">⚙️</div>
-
-            <h3>
-              Instalação e configuração
-            </h3>
-
-            <p>
-              Instalação, configuração e preparação de equipamentos
-              e soluções informáticas de acordo com a necessidade.
-            </p>
-
-            <span class="tag">
-              Configuração
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20preciso%20de%20instalação%20ou%20configuração."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Solicitar serviço
-            </a>
-
-          </article>
-
-
-          <!-- SOFTWARE -->
-
-          <article class="card product-card">
-
-            <div class="icon">🛡️</div>
-
-            <h3>
-              Segurança / Software
-            </h3>
-
-            <p>
-              Soluções de software, segurança digital e ferramentas
-              destinadas a melhorar a utilização e protecção dos equipamentos.
-            </p>
-
-            <span class="tag">
-              Software
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20software%20ou uma solução de segurança."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Procurar solução
-            </a>
-
-          </article>
-
-
-          <!-- ASSISTÊNCIA -->
-
-          <article class="card product-card">
-
-            <div class="icon">🔧</div>
-
-            <h3>
-              Assistência e manutenção
-            </h3>
-
-            <p>
-              Diagnóstico, manutenção, optimização e apoio técnico
-              para computadores e equipamentos informáticos.
-            </p>
-
-            <span class="tag">
-              Assistência técnica
-            </span>
-
-            <br>
-
-            <a
-              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20preciso%20de%20assistência%20informática."
-              class="btn whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Solicitar assistência
-            </a>
-
-          </article>
-
-
-        </div>
-
+      <div class="eyebrow">
+        Catálogo
       </div>
 
-    </section>
+      <h2>
+        Produtos disponíveis
+      </h2>
 
-
-    <!-- =========================
-         COMO FUNCIONA
-    ========================== -->
-
-    <section class="section highlight">
-
-      <div class="container">
-
-        <div class="section-title">
-
-          <span class="eyebrow">
-            Como funciona
-          </span>
-
-          <h2>
-            Não encontrou exactamente o que procura?
-          </h2>
-
-          <p>
-            Não é necessário que o produto esteja listado no site.
-            Envie-nos o nome, fotografia, referência ou características
-            do equipamento que procura.
-          </p>
-
-        </div>
-
-
-        <div class="cards">
-
-
-          <article class="card">
-
-            <div class="icon">1️⃣</div>
-
-            <h3>
-              Envie o pedido
-            </h3>
-
-            <p>
-              Diga-nos qual produto procura ou envie uma fotografia
-              ou referência.
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <div class="icon">2️⃣</div>
-
-            <h3>
-              Verificamos
-            </h3>
-
-            <p>
-              Procuramos uma opção adequada às características
-              e ao orçamento indicado.
-            </p>
-
-          </article>
-
-
-          <article class="card">
-
-            <div class="icon">3️⃣</div>
-
-            <h3>
-              Apresentamos a opção
-            </h3>
-
-            <p>
-              Indicamos disponibilidade, características e preço
-              antes de avançar com o pedido.
-            </p>
-
-          </article>
-
-
-        </div>
-
-
-        <div style="text-align:center;margin-top:40px;">
-
-          <a
-            href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20quero%20solicitar%20um%20produto."
-            class="btn whatsapp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Solicitar um produto
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    <div class="container">
-
-      <strong>PM-TEC</strong>
-
-      <p>
-        Tecnologia que se aproxima.
-        Conhecimento que transforma.
-      </p>
-
-      <p>
-        Moçambique · Formação · Serviços Digitais · Tecnologia
-      </p>
-
-      <p>
-        WhatsApp: +258 878 151 816 ·
-        Chamadas: +258 840 646 843
-      </p>
-
-      <p>
-        © 2026 PM-TEC. Todos os direitos reservados.
+      <p class="muted">
+        Consulte os produtos actualmente disponíveis.
+        A disponibilidade e o stock podem mudar sem aviso
+        prévio. Para confirmar, fale directamente com a PM-TEC.
       </p>
 
     </div>
 
-  </footer>
+
+    <!-- =========================
+         CATEGORIA: LAPTOPS
+    ========================== -->
+
+    <div class="category-block">
+
+      <div class="category-heading">
+
+        <h2>
+          💻 Computadores / Laptops
+        </h2>
+
+        <span>
+          Produto disponível
+        </span>
+
+      </div>
 
 
-  <!-- =========================
-       PESQUISA
-  ========================== -->
+      <div class="products-grid">
 
-  <script>
 
-    const searchInput = document.getElementById("productSearch");
-    const products = document.querySelectorAll(".product-card");
+        <!-- ==================================================
+             PRODUTO 01 — HP ELITEBOOK 840 G5
 
-    searchInput.addEventListener("input", function () {
+             PARA REMOVER ESTE PRODUTO:
+             apague somente este <article>...</article>
 
-      const search = this.value.toLowerCase().trim();
+             PARA ADICIONAR OUTRO:
+             copie este artigo e altere os dados.
+        =================================================== -->
 
-      products.forEach(function (product) {
+        <article class="product-card">
 
-        const text = product.textContent.toLowerCase();
 
-        if (text.includes(search)) {
-          product.style.display = "";
-        } else {
-          product.style.display = "none";
-        }
+          <div class="product-image">
 
-      });
+            <img
+              src="imagens/hp-elitebook-840-g5.jpg"
+              alt="HP EliteBook 840 G5"
+              loading="lazy"
+            >
 
-    });
+            <span class="product-status">
+              Novo
+            </span>
 
-  </script>
+          </div>
+
+
+          <div class="product-content">
+
+
+            <div class="product-category">
+              Computador portátil
+            </div>
+
+
+            <h3>
+              HP EliteBook 840 G5
+            </h3>
+
+
+            <p class="product-description">
+              Laptop profissional indicado para trabalho,
+              estudos, escritório, produtividade e utilização
+              diária.
+            </p>
+
+
+            <ul class="specs">
+
+              <li>
+                Intel® Core™ i5-8565U · até 4.60 GHz
+              </li>
+
+              <li>
+                Intel® UHD Graphics
+              </li>
+
+              <li>
+                8 GB DDR4 SDRAM
+              </li>
+
+              <li>
+                SSD 256 GB
+              </li>
+
+              <li>
+                Ecrã 14"
+              </li>
+
+              <li>
+                Wi-Fi · Bluetooth
+              </li>
+
+              <li>
+                2 USB · 2 Type-C · 1 HDMI
+              </li>
+
+              <li>
+                Leitor SD Card / cartão de memória
+              </li>
+
+              <li>
+                Teclado luminoso
+              </li>
+
+              <li>
+                Carregador incluído
+              </li>
+
+            </ul>
+
+
+            <div class="product-price">
+
+              <span class="price-label">
+                Preço
+              </span>
+
+              <div class="price-value">
+                30.500,00 MZN
+              </div>
+
+            </div>
+
+
+            <div class="product-availability">
+              30 unidades disponíveis
+            </div>
+
+
+            <a
+              class="btn whatsapp product-button"
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20tenho%20interesse%20no%20HP%20EliteBook%20840%20G5%20de%2030.500%20MZN.%20Gostaria%20de%20confirmar%20a%20disponibilidade."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pedir pelo WhatsApp
+            </a>
+
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+      <!-- ENTREGA -->
+
+      <div class="delivery-box">
+
+        <strong>
+          🚚 Entrega grátis para todas as províncias
+        </strong>
+
+        <p>
+          A PM-TEC disponibiliza entrega grátis para todas
+          as províncias de Moçambique. Confirme as condições
+          e o prazo de entrega através do WhatsApp.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         FUTURAS CATEGORIAS
+    ========================== -->
+
+    <div class="category-block">
+
+      <div class="category-heading">
+
+        <h2>
+          🖥️ Equipamentos informáticos
+        </h2>
+
+        <span>
+          Em breve
+        </span>
+
+      </div>
+
+      <p class="muted">
+        Monitores, periféricos e outros equipamentos
+        tecnológicos serão adicionados aqui.
+      </p>
+
+    </div>
+
+
+    <div class="category-block">
+
+      <div class="category-heading">
+
+        <h2>
+          ⌨️ Acessórios
+        </h2>
+
+        <span>
+          Em breve
+        </span>
+
+      </div>
+
+      <p class="muted">
+        Teclados, ratos, cabos, adaptadores, hubs,
+        carregadores e outros acessórios.
+      </p>
+
+    </div>
+
+
+    <div class="category-block">
+
+      <div class="category-heading">
+
+        <h2>
+          💾 Armazenamento
+        </h2>
+
+        <span>
+          Em breve
+        </span>
+
+      </div>
+
+      <p class="muted">
+        SSDs, discos externos, cartões de memória,
+        pens USB e outras soluções de armazenamento.
+      </p>
+
+    </div>
+
+
+    <div class="category-block">
+
+      <div class="category-heading">
+
+        <h2>
+          🌐 Redes e conectividade
+        </h2>
+
+        <span>
+          Em breve
+        </span>
+
+      </div>
+
+      <p class="muted">
+        Routers, adaptadores Wi-Fi, cabos e equipamentos
+        de conectividade.
+      </p>
+
+    </div>
+
+
+    <div class="category-block">
+
+      <div class="category-heading">
+
+        <h2>
+          🖨️ Impressoras e consumíveis
+        </h2>
+
+        <span>
+          Em breve
+        </span>
+
+      </div>
+
+      <p class="muted">
+        Impressoras, tinteiros, toners e consumíveis.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PEDIDO ESPECIAL
+========================== -->
+
+<section class="section">
+
+  <div class="wrap">
+
+    <div class="product-request">
+
+      <div class="eyebrow">
+        Não encontrou o que procura?
+      </div>
+
+      <h2>
+        Procuramos consigo.
+      </h2>
+
+      <p>
+        Se procura um computador, acessório, impressora,
+        componente ou outro equipamento específico, envie
+        o nome, fotografia ou referência do produto.
+        A PM-TEC poderá verificar a disponibilidade e
+        apresentar uma opção adequada.
+      </p>
+
+      <a
+        class="btn whatsapp"
+        href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20produto%20específico."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Solicitar produto
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================
+     RODAPÉ
+========================== -->
+
+<footer class="footer">
+
+  <div class="wrap footerline">
+
+    <span>
+      © 2026 PM-TEC. Todos os direitos reservados.
+    </span>
+
+    <span>
+      Tecnologia que se aproxima.
+      Conhecimento que transforma.
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
