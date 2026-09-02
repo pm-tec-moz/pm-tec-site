@@ -5,24 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+
   <title>Produtos | PM-TEC</title>
 
   <meta
     name="description"
-    content="Produtos, equipamentos e soluções tecnológicas da PM-TEC em Moçambique."
+    content="Produtos, equipamentos, acessórios e soluções tecnológicas da PM-TEC em Moçambique."
   >
-
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <!-- =========================
-       CABEÇALHO
+       MENU
   ========================== -->
 
   <header>
-
     <div class="container nav">
 
       <a href="index.html" class="logo">
@@ -30,29 +30,17 @@
       </a>
 
       <nav>
-
         <a href="index.html">Início</a>
-
         <a href="sobre.html">Sobre</a>
-
         <a href="servicos.html">Serviços</a>
-
         <a href="formacao.html">Formação</a>
-
         <a href="precos.html">Preços</a>
-
-        <a href="produtos.html" class="active">
-          Produtos
-        </a>
-
+        <a href="produtos.html" class="active">Produtos</a>
         <a href="portfolio.html">Portfólio</a>
-
         <a href="contactos.html">Contactos</a>
-
       </nav>
 
     </div>
-
   </header>
 
 
@@ -72,14 +60,12 @@
 
         <h1>
           Tecnologia para
-          <span>trabalhar, estudar</span>
-          e avançar.
+          <span>trabalhar, estudar e avançar.</span>
         </h1>
 
         <p>
-          Equipamentos, acessórios e soluções tecnológicas
-          para particulares, estudantes, profissionais e
-          pequenos negócios em Moçambique.
+          Equipamentos, acessórios e soluções tecnológicas seleccionados
+          de acordo com a necessidade e o orçamento de cada cliente.
         </p>
 
         <a
@@ -88,7 +74,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          Falar no WhatsApp
+          Pedir um produto
         </a>
 
       </div>
@@ -97,7 +83,7 @@
 
 
     <!-- =========================
-         CATEGORIAS
+         PESQUISA
     ========================== -->
 
     <section class="section">
@@ -107,245 +93,348 @@
         <div class="section-title">
 
           <span class="eyebrow">
-            Produtos & Tecnologia
+            Vitrine PM-TEC
           </span>
 
           <h2>
-            Encontre o que precisa.
+            Encontre o que procura.
           </h2>
 
           <p>
-            A PM-TEC disponibiliza produtos e soluções
-            tecnológicas de acordo com a necessidade,
-            utilização e orçamento de cada cliente.
+            Consulte as nossas categorias ou envie-nos directamente
+            o produto que procura.
           </p>
 
         </div>
 
 
-        <div class="cards">
+        <div
+          style="
+            max-width:700px;
+            margin:0 auto 45px;
+          "
+        >
+
+          <input
+            type="text"
+            id="productSearch"
+            placeholder="🔎 Procurar produto ou categoria..."
+            style="
+              width:100%;
+              padding:16px 20px;
+              border-radius:12px;
+              border:1px solid rgba(255,255,255,.12);
+              background:rgba(255,255,255,.04);
+              color:inherit;
+              font-size:1rem;
+              outline:none;
+              box-sizing:border-box;
+            "
+          >
+
+        </div>
 
 
-          <!-- 01 -->
+        <!-- =========================
+             CATEGORIAS
+        ========================== -->
 
-          <article class="card">
+        <div class="cards" id="productGrid">
 
-            <div class="icon">
-              💻
-            </div>
+
+          <!-- COMPUTADORES -->
+
+          <article class="card product-card">
+
+            <div class="icon">💻</div>
 
             <h3>
               Computadores / Laptops
             </h3>
 
             <p>
-              Computadores portáteis e equipamentos para
-              estudo, trabalho, escritório, produtividade
-              e utilização profissional.
+              Laptops e computadores para estudo, trabalho,
+              escritório, produtividade e utilização profissional.
             </p>
 
             <span class="tag">
-              Por encomenda
+              Computadores
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20computador%20ou%20laptop."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar computador
+            </a>
 
           </article>
 
 
-          <!-- 02 -->
+          <!-- EQUIPAMENTOS -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              🖥️
-            </div>
+            <div class="icon">🖥️</div>
 
             <h3>
               Equipamentos informáticos
             </h3>
 
             <p>
-              Monitores, periféricos e outros equipamentos
-              destinados a complementar e melhorar o seu
-              espaço de trabalho.
+              Monitores, teclados, ratos, webcams e outros
+              equipamentos para completar o seu espaço de trabalho.
             </p>
 
             <span class="tag">
-              Sob consulta
+              Equipamentos
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20equipamento%20informático."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar equipamento
+            </a>
 
           </article>
 
 
-          <!-- 03 -->
+          <!-- ACESSÓRIOS -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              ⌨️
-            </div>
+            <div class="icon">⌨️</div>
 
             <h3>
               Acessórios
             </h3>
 
             <p>
-              Teclados, ratos, cabos, adaptadores, hubs,
-              carregadores e outros acessórios tecnológicos.
+              Teclados, ratos, cabos, adaptadores, suportes,
+              headphones e outros acessórios tecnológicos.
             </p>
 
             <span class="tag">
-              Por encomenda
+              Acessórios
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20acessório%20informático."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar acessório
+            </a>
 
           </article>
 
 
-          <!-- 04 -->
+          <!-- ARMAZENAMENTO -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              💾
-            </div>
+            <div class="icon">💾</div>
 
             <h3>
               Armazenamento
             </h3>
 
             <p>
-              Soluções para guardar, transportar e proteger
-              os seus dados, incluindo discos, SSD, cartões
-              de memória e dispositivos de armazenamento.
+              Pen drives, discos externos, SSDs, cartões de memória
+              e outras soluções para guardar e transportar dados.
             </p>
 
             <span class="tag">
-              Sob consulta
+              Armazenamento
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20uma%20solução%20de%20armazenamento."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar armazenamento
+            </a>
 
           </article>
 
 
-          <!-- 05 -->
+          <!-- REDES -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              🌐
-            </div>
+            <div class="icon">🌐</div>
 
             <h3>
               Redes e conectividade
             </h3>
 
             <p>
-              Routers, equipamentos de rede, cabos e soluções
-              de conectividade para casas, escritórios e
-              pequenos negócios.
+              Routers, adaptadores Wi-Fi, cabos de rede,
+              switches e equipamentos para conectividade.
             </p>
 
             <span class="tag">
-              Soluções de rede
+              Redes
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20um%20produto%20de%20rede%20ou%20conectividade."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar produto de rede
+            </a>
 
           </article>
 
 
-          <!-- 06 -->
+          <!-- IMPRESSORAS -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              🖨️
-            </div>
+            <div class="icon">🖨️</div>
 
             <h3>
               Impressoras e consumíveis
             </h3>
 
             <p>
-              Impressoras, tinteiros, toners e consumíveis
-              para utilização doméstica, académica,
-              profissional e empresarial.
+              Impressoras, tinteiros, toners, papel e consumíveis
+              para utilização doméstica, académica e profissional.
             </p>
 
             <span class="tag">
-              Sob consulta
+              Impressão
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20uma%20impressora%20ou%20consumível."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar produto
+            </a>
 
           </article>
 
 
-          <!-- 07 -->
+          <!-- INSTALAÇÃO -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              ⚙️
-            </div>
+            <div class="icon">⚙️</div>
 
             <h3>
               Instalação e configuração
             </h3>
 
             <p>
-              Instalação e configuração de computadores,
-              programas, impressoras, periféricos e
-              equipamentos tecnológicos.
+              Instalação, configuração e preparação de equipamentos
+              e soluções informáticas de acordo com a necessidade.
             </p>
 
             <span class="tag">
-              Serviço técnico
+              Configuração
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20preciso%20de%20instalação%20ou%20configuração."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solicitar serviço
+            </a>
 
           </article>
 
 
-          <!-- 08 -->
+          <!-- SOFTWARE -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              🛡️
-            </div>
+            <div class="icon">🛡️</div>
 
             <h3>
               Segurança / Software
             </h3>
 
             <p>
-              Instalação, actualização e configuração de
-              software, ferramentas de segurança e
-              optimização de sistemas informáticos.
+              Soluções de software, segurança digital e ferramentas
+              destinadas a melhorar a utilização e protecção dos equipamentos.
             </p>
 
             <span class="tag">
-              Serviço técnico
+              Software
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20procuro%20software%20ou uma solução de segurança."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Procurar solução
+            </a>
 
           </article>
 
 
-          <!-- 09 -->
+          <!-- ASSISTÊNCIA -->
 
-          <article class="card">
+          <article class="card product-card">
 
-            <div class="icon">
-              🔧
-            </div>
+            <div class="icon">🔧</div>
 
             <h3>
               Assistência e manutenção
             </h3>
 
             <p>
-              Diagnóstico, manutenção preventiva, optimização
-              e apoio técnico para computadores e equipamentos
-              informáticos.
+              Diagnóstico, manutenção, optimização e apoio técnico
+              para computadores e equipamentos informáticos.
             </p>
 
             <span class="tag">
-              Serviço técnico
+              Assistência técnica
             </span>
+
+            <br>
+
+            <a
+              href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20preciso%20de%20assistência%20informática."
+              class="btn whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solicitar assistência
+            </a>
 
           </article>
 
@@ -358,7 +447,7 @@
 
 
     <!-- =========================
-         SOLICITAÇÃO DE PRODUTO
+         COMO FUNCIONA
     ========================== -->
 
     <section class="section highlight">
@@ -368,27 +457,85 @@
         <div class="section-title">
 
           <span class="eyebrow">
-            Não encontrou o que procura?
+            Como funciona
           </span>
 
           <h2>
-            Procuramos consigo.
+            Não encontrou exactamente o que procura?
           </h2>
 
           <p>
-            Envie-nos o nome, fotografia ou referência
-            do produto que procura. A PM-TEC pode verificar
-            a disponibilidade e apresentar uma opção adequada
-            às suas necessidades e orçamento.
+            Não é necessário que o produto esteja listado no site.
+            Envie-nos o nome, fotografia, referência ou características
+            do equipamento que procura.
           </p>
 
+        </div>
+
+
+        <div class="cards">
+
+
+          <article class="card">
+
+            <div class="icon">1️⃣</div>
+
+            <h3>
+              Envie o pedido
+            </h3>
+
+            <p>
+              Diga-nos qual produto procura ou envie uma fotografia
+              ou referência.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">2️⃣</div>
+
+            <h3>
+              Verificamos
+            </h3>
+
+            <p>
+              Procuramos uma opção adequada às características
+              e ao orçamento indicado.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="icon">3️⃣</div>
+
+            <h3>
+              Apresentamos a opção
+            </h3>
+
+            <p>
+              Indicamos disponibilidade, características e preço
+              antes de avançar com o pedido.
+            </p>
+
+          </article>
+
+
+        </div>
+
+
+        <div style="text-align:center;margin-top:40px;">
+
           <a
-            href="https://wa.me/258878151816"
+            href="https://wa.me/258878151816?text=Olá%20PM-TEC,%20quero%20solicitar%20um%20produto."
             class="btn whatsapp"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Solicitar produto
+            Solicitar um produto
           </a>
 
         </div>
@@ -401,23 +548,27 @@
 
 
   <!-- =========================
-       RODAPÉ
+       FOOTER
   ========================== -->
 
   <footer>
 
     <div class="container">
 
-      <strong>
-        PM-TEC
-      </strong>
+      <strong>PM-TEC</strong>
 
       <p>
-        Tecnologia que se aproxima. Conhecimento que transforma.
+        Tecnologia que se aproxima.
+        Conhecimento que transforma.
       </p>
 
       <p>
         Moçambique · Formação · Serviços Digitais · Tecnologia
+      </p>
+
+      <p>
+        WhatsApp: +258 878 151 816 ·
+        Chamadas: +258 840 646 843
       </p>
 
       <p>
@@ -429,8 +580,34 @@
   </footer>
 
 
-  <script src="script.js"></script>
+  <!-- =========================
+       PESQUISA
+  ========================== -->
+
+  <script>
+
+    const searchInput = document.getElementById("productSearch");
+    const products = document.querySelectorAll(".product-card");
+
+    searchInput.addEventListener("input", function () {
+
+      const search = this.value.toLowerCase().trim();
+
+      products.forEach(function (product) {
+
+        const text = product.textContent.toLowerCase();
+
+        if (text.includes(search)) {
+          product.style.display = "";
+        } else {
+          product.style.display = "none";
+        }
+
+      });
+
+    });
+
+  </script>
 
 </body>
-
 </html>
