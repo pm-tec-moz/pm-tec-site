@@ -1,3 +1,4 @@
+```css
 * {
   box-sizing: border-box;
 }
@@ -25,14 +26,14 @@ a {
 }
 
 /* =========================
-   HEADER / NAVEGAÇÃO
+   HEADER
 ========================= */
 
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: rgba(7, 17, 31, 0.96);
+  z-index: 1000;
+  background: rgba(7, 17, 31, 0.97);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid #243247;
 }
@@ -42,10 +43,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
+  gap: 24px;
 }
 
 .logo {
+  flex: 0 0 auto;
   font-weight: 950;
   letter-spacing: 0.1em;
   font-size: 1.2rem;
@@ -61,19 +63,29 @@ nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 18px;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
 nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
   color: #a9b6c7;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 600;
+  padding: 7px 2px;
   transition: 0.2s ease;
 }
 
 nav a:hover,
 nav a.active {
   color: #ffffff;
+}
+
+nav a.active {
+  color: #29d3e6;
 }
 
 /* =========================
@@ -144,6 +156,8 @@ nav a.active {
   align-items: center;
   justify-content: center;
   padding: 12px 19px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   border: 1px solid #243247;
   border-radius: 10px;
   font-weight: 800;
@@ -193,7 +207,7 @@ nav a.active {
 }
 
 /* =========================
-   PRODUTOS
+   CARDS
 ========================= */
 
 .cards {
@@ -315,16 +329,20 @@ footer p {
 }
 
 /* =========================
-   RESPONSIVO
+   TABLET
 ========================= */
 
 @media (max-width: 1050px) {
+  .nav {
+    align-items: center;
+  }
+
   nav {
-    gap: 13px;
+    gap: 8px 13px;
   }
 
   nav a {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
   }
 
   .cards {
@@ -332,19 +350,28 @@ footer p {
   }
 }
 
+/* =========================
+   TELEMÓVEL
+========================= */
+
 @media (max-width: 760px) {
   .nav {
-    min-height: 68px;
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 17px 0;
+    gap: 14px;
   }
 
   nav {
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 7px 14px;
   }
 
   nav a {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
+    padding: 5px 0;
   }
 
   .hero {
@@ -387,26 +414,21 @@ footer p {
   }
 }
 
+/* =========================
+   TELEMÓVEIS PEQUENOS
+========================= */
+
 @media (max-width: 560px) {
   .container {
-    width: min(92%, 1180px);
-  }
-
-  .nav {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 17px 0;
-    gap: 13px;
+    width: 92%;
   }
 
   nav {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 7px 14px;
+    gap: 6px 12px;
   }
 
   nav a {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
   }
 
   .hero .container {
@@ -425,55 +447,10 @@ footer p {
   .card {
     padding: 23px;
   }
-}
-/* =========================
-   AJUSTE DO MENU PM-TEC
-========================= */
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  display: inline-block;
-  white-space: nowrap;
-}
-
-/* Ecrãs médios */
-@media (max-width: 1100px) {
-  .nav {
-    gap: 18px;
-  }
-
-  nav {
-    gap: 10px 14px;
-  }
-
-  nav a {
-    font-size: 0.82rem;
-  }
-}
-
-/* Telemóveis */
-@media (max-width: 760px) {
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 16px 0;
-    gap: 14px;
-  }
-
-  nav {
+  .btn {
     width: 100%;
-    justify-content: flex-start;
-    gap: 9px 14px;
-  }
-
-  nav a {
-    font-size: 0.78rem;
+    margin-right: 0;
   }
 }
+```
