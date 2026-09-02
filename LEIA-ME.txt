@@ -1,18 +1,18 @@
-PM-TEC — SITE OFICIAL COMPLETO
+PM-TEC — VERSÃO CORRIGIDA
 
-Abra index.html para visualizar.
-Inclui:
-- Início
-- Sobre
-- Serviços
-- Formação
-- Preços
-- Portfólio
-- Contactos
-- Botões WhatsApp
-- Botão de e-mail
-- Design responsivo para computador e telemóvel
+Nesta versão TODOS os ficheiros ficam directamente na raiz do repositório.
+Envie/substitua estes 10 ficheiros:
+index.html
+sobre.html
+servicos.html
+formacao.html
+precos.html
+portfolio.html
+contactos.html
+style.css
+script.js
+favicon.svg
 
-Contactos:
-WhatsApp: +258 87 815 1816 / +258 84 064 6843
-E-mails: pablo.matola@gmail.com / pablomato50@gmail.com
+NÃO crie nem use a pasta assets.
+
+Os ficheiros HTML já apontam directamente para style.css, script.js e favicon.svg.
