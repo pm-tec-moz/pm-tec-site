@@ -1,6 +1,6 @@
 /* =========================================================
-   PM-TEC — DESIGN PRINCIPAL
-   Visual moderno, tecnológico e profissional
+   PM-TEC — STYLE.CSS DEFINITIVO
+   Tecnologia que se aproxima. Conhecimento que transforma.
    ========================================================= */
 
 * {
@@ -28,6 +28,7 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -37,7 +38,7 @@ input {
 }
 
 /* =========================================================
-   ESTRUTURA
+   ESTRUTURA GLOBAL
    ========================================================= */
 
 .wrap {
@@ -45,12 +46,12 @@ input {
   margin: 0 auto;
 }
 
-section {
-  padding: 90px 0;
-}
-
 main {
   min-height: 70vh;
+}
+
+section {
+  padding: 88px 0;
 }
 
 /* =========================================================
@@ -61,32 +62,90 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid #e7ebf2;
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e6eaf0;
 }
 
 nav {
-  min-height: 78px;
+  min-height: 82px;
   display: flex;
   align-items: center;
   gap: 28px;
 }
 
-/* LOGO */
+/* =========================================================
+   LOGÓTIPO PM-TEC
+   ========================================================= */
 
 .logo {
   display: inline-flex;
   align-items: center;
-  font-size: 1.55rem;
-  font-weight: 900;
-  letter-spacing: -1px;
+  font-size: 1.75rem;
+  font-weight: 950;
+  letter-spacing: -1.5px;
   white-space: nowrap;
   color: #101828;
+  flex-shrink: 0;
 }
 
 .logo span {
   color: #087f8c;
+}
+
+/* =========================================================
+   SÍMBOLO TECNOLÓGICO À DIREITA
+   ========================================================= */
+
+.pm-symbol {
+  width: 72px;
+  height: 72px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 2px solid #087f8c;
+  border-radius: 50%;
+  color: #101828;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 5px rgba(8,127,140,.05),
+    0 0 0 10px rgba(8,127,140,.04);
+}
+
+.pm-symbol::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px solid rgba(8,127,140,.45);
+  border-radius: 50%;
+}
+
+.pm-symbol::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 1px dashed rgba(8,127,140,.22);
+  border-radius: 50%;
+}
+
+.pm-symbol strong {
+  display: block;
+  font-size: 1.25rem;
+  line-height: .9;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.pm-symbol span {
+  display: block;
+  margin-top: 3px;
+  color: #087f8c;
+  font-size: .75rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 /* =========================================================
@@ -97,17 +156,19 @@ nav {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: flex-end;
+  gap: 3px;
 }
 
 .links a {
   position: relative;
-  padding: 10px 12px;
+  padding: 10px 10px;
   border-radius: 10px;
-  font-size: 0.92rem;
-  font-weight: 650;
-  color: #475467;
-  transition: 0.25s ease;
+  color: #344054;
+  font-size: .88rem;
+  font-weight: 750;
+  white-space: nowrap;
+  transition: .25s ease;
 }
 
 .links a:hover {
@@ -127,19 +188,21 @@ nav {
   right: 12px;
   bottom: 4px;
   height: 2px;
-  border-radius: 10px;
+  border-radius: 20px;
   background: #087f8c;
 }
 
-/* BOTÃO FALAR CONNOSCO */
+/* =========================================================
+   BOTÃO FALAR CONNOSCO
+   ========================================================= */
 
 .links .navbtn {
-  margin-left: 8px;
-  padding: 11px 18px;
+  margin-left: 7px;
+  padding: 12px 17px;
   color: #ffffff;
   background: #087f8c;
   border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(8, 127, 140, 0.18);
+  box-shadow: 0 8px 22px rgba(8,127,140,.18);
 }
 
 .links .navbtn:hover {
@@ -148,16 +211,92 @@ nav {
   transform: translateY(-1px);
 }
 
-/* MENU MOBILE */
+/* =========================================================
+   BOTÃO MOBILE
+   ========================================================= */
 
 .menu {
   display: none;
   margin-left: auto;
   border: 0;
   background: transparent;
-  font-size: 1.7rem;
-  cursor: pointer;
   color: #172033;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* =========================================================
+   BARRA DE PESQUISA GLOBAL
+   ========================================================= */
+
+.global-search {
+  padding: 0 0 18px;
+  background: #ffffff;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.search-box form {
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  height: 56px;
+  padding: 0 62px 0 50px;
+  border: 1px solid #d9dee7;
+  border-radius: 15px;
+  outline: none;
+  background: #ffffff;
+  color: #172033;
+  font-size: .98rem;
+  box-shadow: 0 8px 25px rgba(16,24,40,.055);
+  transition: .25s ease;
+}
+
+.search-box input::placeholder {
+  color: #98a2b3;
+}
+
+.search-box input:focus {
+  border-color: #087f8c;
+  box-shadow: 0 0 0 4px rgba(8,127,140,.09);
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #087f8c;
+  font-size: 1.35rem;
+  pointer-events: none;
+}
+
+.search-button {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 11px;
+  background: #087f8c;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: .25s ease;
+}
+
+.search-button:hover {
+  background: #066d78;
 }
 
 /* =========================================================
@@ -166,23 +305,36 @@ nav {
 
 .hero {
   position: relative;
-  padding: 110px 0 100px;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(8,127,140,.12), transparent 30%),
-    radial-gradient(circle at 15% 80%, rgba(8,127,140,.07), transparent 28%),
-    linear-gradient(135deg, #ffffff 0%, #f5fafb 100%);
+  padding: 100px 0 90px;
   overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 82% 35%,
+      rgba(8,127,140,.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(8,127,140,.07),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f5fafb 100%
+    );
 }
 
 .hero::after {
   content: "";
   position: absolute;
-  width: 420px;
-  height: 420px;
-  right: -180px;
-  top: -180px;
+  width: 480px;
+  height: 480px;
+  right: -230px;
+  top: -210px;
   border: 1px solid rgba(8,127,140,.12);
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .hero h1,
@@ -190,7 +342,7 @@ nav {
 .section-title h1 {
   max-width: 900px;
   font-size: clamp(2.7rem, 6vw, 5.4rem);
-  line-height: 1.02;
+  line-height: 1.03;
   letter-spacing: -3px;
   color: #101828;
 }
@@ -205,12 +357,12 @@ nav {
 .lead {
   max-width: 720px;
   margin-top: 24px;
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: #667085;
 }
 
 /* =========================================================
-   PEQUENO TÍTULO
+   EYEBROW
    ========================================================= */
 
 .eyebrow {
@@ -219,7 +371,7 @@ nav {
   gap: 8px;
   margin-bottom: 18px;
   color: #087f8c;
-  font-size: 0.78rem;
+  font-size: .78rem;
   font-weight: 850;
   letter-spacing: 1.6px;
   text-transform: uppercase;
@@ -234,7 +386,7 @@ nav {
 }
 
 /* =========================================================
-   TÍTULOS DE SECÇÃO
+   CABEÇALHOS DE SECÇÃO
    ========================================================= */
 
 .section-head,
@@ -265,7 +417,7 @@ nav {
   background: #ffffff;
   color: #172033;
   font-weight: 750;
-  transition: 0.25s ease;
+  transition: .25s ease;
 }
 
 .btn:hover {
@@ -279,6 +431,12 @@ nav {
   color: #ffffff;
 }
 
+.btn.primary {
+  background: #087f8c;
+  border-color: #087f8c;
+  color: #ffffff;
+}
+
 /* =========================================================
    CARTÕES
    ========================================================= */
@@ -287,11 +445,11 @@ nav {
 .price-card,
 .contact-card,
 .panel {
-  background: rgba(255,255,255,.96);
+  background: rgba(255,255,255,.97);
   border: 1px solid #e6eaf0;
   border-radius: 20px;
   box-shadow: 0 12px 35px rgba(16,24,40,.055);
-  transition: 0.3s ease;
+  transition: .3s ease;
 }
 
 .card {
@@ -309,8 +467,8 @@ nav {
 .card h3,
 .price-card h3,
 .contact-card h3 {
-  color: #101828;
   margin-bottom: 10px;
+  color: #101828;
 }
 
 .card p,
@@ -346,6 +504,10 @@ nav {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+
+/* =========================================================
+   PREÇOS
+   ========================================================= */
 
 .price-card {
   padding: 30px;
@@ -384,7 +546,7 @@ nav {
   gap: 30px;
   padding: 30px;
   border-radius: 22px;
-  background: linear-gradient(135deg, #ecf9fa, #f7fbfc);
+  background: linear-gradient(135deg,#ecf9fa,#f7fbfc);
   border: 1px solid #d8eef0;
 }
 
@@ -488,46 +650,6 @@ td strong {
 }
 
 /* =========================================================
-   PESQUISA
-   ========================================================= */
-
-.search-box {
-  width: 100%;
-  max-width: 680px;
-  margin: 0 auto 45px;
-  position: relative;
-}
-
-.search-box input {
-  width: 100%;
-  height: 58px;
-  padding: 0 22px 0 52px;
-  border: 1px solid #d9dee7;
-  border-radius: 16px;
-  outline: none;
-  background: #ffffff;
-  color: #172033;
-  box-shadow: 0 10px 30px rgba(16,24,40,.06);
-  transition: .25s ease;
-}
-
-.search-box input:focus {
-  border-color: #087f8c;
-  box-shadow: 0 0 0 4px rgba(8,127,140,.10);
-}
-
-.search-box::before {
-  content: "⌕";
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #087f8c;
-  font-size: 1.5rem;
-  z-index: 2;
-}
-
-/* =========================================================
    CONTACTOS
    ========================================================= */
 
@@ -542,12 +664,8 @@ td strong {
 }
 
 /* =========================================================
-   TEXTO
+   SOBRE
    ========================================================= */
-
-.muted {
-  color: #667085;
-}
 
 .about {
   display: grid;
@@ -603,18 +721,31 @@ td strong {
 }
 
 /* =========================================================
-   RESPONSIVO
+   TABLET
    ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
+
+  nav {
+    gap: 16px;
+  }
 
   .links {
-    gap: 2px;
+    gap: 1px;
   }
 
   .links a {
-    padding: 9px 8px;
-    font-size: .84rem;
+    padding: 9px 7px;
+    font-size: .82rem;
+  }
+
+  .links .navbtn {
+    padding: 10px 12px;
+  }
+
+  .pm-symbol {
+    width: 62px;
+    height: 62px;
   }
 
   .grid,
@@ -631,7 +762,11 @@ td strong {
   }
 }
 
-@media (max-width: 720px) {
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
 
   section {
     padding: 65px 0;
@@ -639,6 +774,14 @@ td strong {
 
   nav {
     min-height: 70px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .pm-symbol {
+    display: none;
   }
 
   .menu {
@@ -650,7 +793,7 @@ td strong {
     position: absolute;
     left: 4%;
     right: 4%;
-    top: 76px;
+    top: 72px;
     padding: 12px;
     flex-direction: column;
     align-items: stretch;
@@ -667,12 +810,22 @@ td strong {
   .links a {
     width: 100%;
     padding: 12px 14px;
+    font-size: .9rem;
   }
 
   .links .navbtn {
     margin-left: 0;
     margin-top: 5px;
     text-align: center;
+  }
+
+  .global-search {
+    padding-bottom: 14px;
+  }
+
+  .search-box input {
+    height: 52px;
+    font-size: .9rem;
   }
 
   .hero {
